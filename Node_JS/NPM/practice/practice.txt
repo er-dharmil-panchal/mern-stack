@@ -1,0 +1,35 @@
+1. create a custom init with
+     # Custom name: my-cool-app
+     # Version: 2.0.1
+     # Entry point: server.js
+
+     ans -  npm init
+          # Custom name: my-cool-app
+          # Version: 2.0.1
+          # Entry point: server.js
+
+2. The "Ghost" Install - Install the package, then restore it:
+
+     ans - npm install lodash. 
+     # (now node_modules named folder will be there, mannually delete that)
+     # (now the code is breakd because in package.json ther is dependencies but there is nothing like node_modules)
+     # (use npm install to restore the dependencies)
+     npm install
+
+3. Script Master
+
+     solution - (add this to the 'scripts' in package.json)
+          - "scripts": {
+                         "dev": "node app.js" (any basic js file)
+                    }
+          - (now run npm run dev)
+
+4. Version Check - Check installed packages via terminal:
+
+     npm list
+     # Or for just the top level:
+     npm list --depth=0
+
+5. The Clean Up - To remove a package completely:
+
+     npm uninstall lodash
