@@ -131,6 +131,3 @@ fs.mkdirSync('new_directory/a/b/c', { recursive: true });
 
 // * rmdir: Removing directories
 fs.rmdirSync('new_directory/a/b', { recursive: true });
-
-// write a commit msg for my staged changes in source control: (using fleet commit)
-// "feat: Added a log entry system that writes log messages to a file with timestamps. Implemented both synchronous and asynchronous file handling methods for writing, reading, and appending data."
