@@ -131,3 +131,20 @@ fs.mkdirSync('new_directory/a/b/c', { recursive: true });
 
 // * rmdir: Removing directories
 fs.rmdirSync('new_directory/a/b', { recursive: true });
+
+
+// ==========================================
+// 7. Larger File Handling (Streams)
+// ==========================================
+
+/*
+    If we try to read a 2GB video file using fs.readFile,
+    our RAM will crash because Node tries to load the entire file at once.
+    Professionals use Streams to read/write data in "chunks."
+*/
+
+const readStream = fsStandard.createReadStream('./large_video.mp4');
+const writeStream = fsStandard.createWriteStream('./copy_video.mp4');
+
+// Pipe the data: It reads a chunk, then writes a chunk. Low RAM usage.
+readStream.pipe(writeStream); 
