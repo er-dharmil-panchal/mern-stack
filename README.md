@@ -26,17 +26,15 @@ Instead, it is a **learning-first, concept-driven workspace** focused on buildin
 
 <a name="about"></a>
 ## 🎯 About
->🗓️ **Started On:** *January 2026*
+>🗓️ **Started On:** *March 2026*
 
 This repository is designed as a **long-term reference** for learning the MERN stack from the ground up.
 
 Each section focuses on **one layer at a time**:
-- HTML & CSS fundamentals
-- Core JavaScript concepts
-- React basics and hooks
 - Node.js and Express
 - Databases (MongoDB & Mongoose)
 - Authentication
+- React basics and hooks
 - Small full-stack mini projects
 
 The emphasis is on **clarity over completeness** and **understanding over speed**.
