@@ -91,3 +91,5 @@ const logServer = http.createServer((req, res) => {
 logServer.listen(5000, () => {
      console.log('The log server is started');
 });
+
+// 🔥 IMP - This is outdated, just learning as a base of how Node.js handles raw HTTP traffic before moving to production-grade frameworks like Express or NestJS.
