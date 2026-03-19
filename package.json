@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@monaco-editor/react": "^4.7.0",
-    "url": "^0.11.4"
-  }
-}
