@@ -1,0 +1,21 @@
+// it is the Learning-phase project, not the actuall project....
+
+We are designing the REST api. (JSON)
+
+key routes:
+
+GET /users - List all users (HTML)
+GET /api/users - List all users
+
+GET /api/users/id - Get a single user by id
+
+POST /api/users - Create a new user
+
+PATCH /api/users/id - Update a user by id
+
+DELETE /api/users/id - Delete a user by id
+
+
+
+// Here we use /api so server know that it is called as api so return json response instead of html page
+// if there is not /api then it will return html page
