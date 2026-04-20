@@ -1,0 +1,5 @@
+Built-in headers list for API
+
+- https://thevalleyofcode.com/lesson/http/http-request-headers/
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers
