@@ -53,7 +53,6 @@ app.post('/api/users', (req, res) => {
 });
 
 app.patch('/api/users/:id', (req, res) => {
-
      const id = Number(req.params.id);
      const body = req.body;
      console.log("Received body:", body);

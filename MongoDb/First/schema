@@ -1,0 +1,4 @@
+Schema - Define the structure of the documents in a MongoDB collection using Mongoose.
+
+     Then we make model using Schema.
+     and with that model we can perform CRUD operations on the collection.
