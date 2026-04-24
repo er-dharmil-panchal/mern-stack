@@ -24,27 +24,29 @@ mongoose
 // schema
 const userSchema = new mongoose.Schema({
      first_name: {
-          type : String,
+          type: String,
           required: true
      },
      last_name: {
-          type : String,
+          type: String,
      },
      email: {
-          type : String,
+          type: String,
           required: true,
           unique: true
      },
      job_title: {
-          type : String,
+          type: String,
      },
      gender: {
-          type : String,
+          type: String,
      }
 }, { timestamps: true })
 
 // now schema is done, we have to make Model now to perform CRUD operations on the database.
 const User = mongoose.model('user', userSchema);
+// here the "user" is the name of the collection in the database, and it will be pruler form,
+// so there will be "users" as a collection and it have structure of the userSchema.
 
 
 // IF i run till this point, it will connect to the database and create a collection named "users" in the 
@@ -61,7 +63,7 @@ const User = mongoose.model('user', userSchema);
 app.get('/api/users', async (req, res) => {
      const users = await User.find({});
      return res.json(users);
- });
+});
 
 
 // showing data in html format , fetching from Database
@@ -73,11 +75,6 @@ app.get('/users', async (req, res) => {
      </ul>
      `
      res.send(html)
-})
-
-app.get('/api/users/:id', async(req, res) => {
-     const user = await User.findById(req.params.id)
-     return res.json(user);
 })
 
 // Create User
@@ -96,7 +93,7 @@ app.post('/api/users', async (req, res) => {
      });
      console.log("User created successfully", result);
      return res.status(201).json({ "message": "User created successfully" })
-      
+
 });
 // Do db.users.find({}) in mongosh (terminal where we activated the database).
 // -> Output :-
@@ -114,35 +111,20 @@ app.post('/api/users', async (req, res) => {
 //   }
 // ]
 
-// // Update User
-// app.patch('/api/users/:id', (req, res) => {
-//      const id = Number(req.params.id);
-//      const body = req.body;
-//      console.log("Received body:", body);
-//      const userIndex = users.findIndex(user => user.id === id);
-//      if (userIndex === -1) {
-//           return res.status(404).json({ "message": "User Not Found" })
-//      }
-//      users[userIndex] = { ...users[userIndex], ...body };
-//      fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err,data) => {
-//           return res.json({ "message": "User Updated" })
-//      });
-// })
+app.route('/api/users/:id')
+     .get(async (req, res) => {
+          const user = await User.findById(req.params.id)
+          return res.json(user);
+     })
+     .patch(async (req, res) => {
+          await User.findByIdAndUpdate(req.params.id, {last_name : "Panchal"});
+          return res.json({ "message": "User Updated" })
+     })
+     .delete(async (req, res) => {
+          await User.findByIdAndDelete(req.params.id);
+          return res.json({ "message": "User Deleted" })
+     })
 
-// // Delete User 
-// app.delete('/api/users/:id', (req, res) => {
-//      // NOTE - Delete a user
-//      const id = Number(req.params.id);
-//      const userIndex = users.findIndex(user => user.id === id);
-//      if (userIndex === -1) {
-//           return res.status(404).json({ "message": "User Not Found" })
-//      }
-//      users.splice(userIndex, 1);
-//      fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err,data) => {
-//           return res.json({ "message": "User Deleted" })
-//      });
-//      return res.json({ "message": "User Deleted" })
-// })
 
 app.listen(Port, () => {
      console.log(`Server is running on port ${Port}`);
