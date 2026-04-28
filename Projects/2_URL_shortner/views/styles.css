@@ -1,0 +1,237 @@
+:root {
+     --bg: #f4f3ef;
+     --card: #fffdf7;
+     --text: #25221e;
+     --muted: #6e675d;
+     --accent: #d97904;
+     --accent-deep: #9a4d00;
+     --line: #eadfce;
+     --ok: #1b8f57;
+     --bad: #b42318;
+     --shadow: 0 16px 40px rgba(58, 38, 17, 0.12);
+}
+
+* {
+     box-sizing: border-box;
+}
+
+body {
+     margin: 0;
+     min-height: 100vh;
+     font-family: "Manrope", sans-serif;
+     color: var(--text);
+     background:
+          radial-gradient(circle at 15% 20%, rgba(217, 121, 4, 0.18), transparent 38%),
+          radial-gradient(circle at 85% 0%, rgba(154, 77, 0, 0.14), transparent 40%),
+          linear-gradient(180deg, #f7f2e8 0%, #f4f3ef 48%, #efece6 100%);
+     padding: 32px 16px;
+}
+
+.container {
+     max-width: 860px;
+     margin: 0 auto;
+     display: grid;
+     gap: 18px;
+}
+
+.card {
+     background: var(--card);
+     border: 1px solid var(--line);
+     border-radius: 18px;
+     box-shadow: var(--shadow);
+     padding: 24px;
+     position: relative;
+     overflow: hidden;
+}
+
+.card::after {
+     content: "";
+     position: absolute;
+     inset: auto -120px -120px auto;
+     width: 240px;
+     height: 240px;
+     border-radius: 50%;
+     background: radial-gradient(circle, rgba(217, 121, 4, 0.12), transparent 70%);
+     pointer-events: none;
+}
+
+h1,
+h2 {
+     font-family: "Sora", sans-serif;
+     margin: 0 0 10px;
+     letter-spacing: -0.02em;
+}
+
+h1 {
+     font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+h2 {
+     font-size: 1.25rem;
+}
+
+.tag {
+     display: inline-block;
+     font-size: 0.78rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     color: var(--accent-deep);
+     background: #ffe5c0;
+     border: 1px solid #f7c47d;
+     border-radius: 999px;
+     padding: 6px 10px;
+     margin: 0 0 14px;
+}
+
+.subtitle {
+     margin: 0;
+     color: var(--muted);
+}
+
+.stack {
+     display: grid;
+     gap: 10px;
+}
+
+label {
+     font-size: 0.93rem;
+     font-weight: 700;
+}
+
+input {
+     width: 100%;
+     border: 1px solid #d8c5ab;
+     border-radius: 12px;
+     padding: 12px 14px;
+     font-size: 0.96rem;
+     background: #fff;
+     color: var(--text);
+     outline: none;
+     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+     border-color: var(--accent);
+     box-shadow: 0 0 0 4px rgba(217, 121, 4, 0.16);
+}
+
+button {
+     border: 0;
+     border-radius: 12px;
+     padding: 12px 14px;
+     font-weight: 700;
+     font-size: 0.95rem;
+     background: linear-gradient(135deg, var(--accent) 0%, #f1a94e 100%);
+     color: #1f1307;
+     cursor: pointer;
+     transition: transform 0.14s ease, filter 0.14s ease;
+}
+
+button:hover {
+     transform: translateY(-1px);
+     filter: brightness(1.03);
+}
+
+button:active {
+     transform: translateY(0);
+}
+
+button.secondary {
+     background: linear-gradient(135deg, #d9dbdd 0%, #f2f3f4 100%);
+     color: #222;
+}
+
+.result {
+     margin-top: 12px;
+     border: 1px dashed #d4c3aa;
+     border-radius: 12px;
+     padding: 12px;
+     background: #fff;
+     line-height: 1.6;
+}
+
+.result.ok {
+     border-color: rgba(27, 143, 87, 0.35);
+     background: rgba(27, 143, 87, 0.06);
+}
+
+.result.error {
+     border-color: rgba(180, 35, 24, 0.35);
+     background: rgba(180, 35, 24, 0.06);
+}
+
+.result a {
+     color: #1f5ebf;
+     font-weight: 700;
+}
+
+.hidden {
+     display: none;
+}
+
+.muted {
+     color: var(--muted);
+     font-size: 0.93rem;
+}
+
+.list {
+     margin: 8px 0 0;
+     padding-left: 18px;
+}
+
+.fade-up {
+     opacity: 0;
+     transform: translateY(14px);
+     animation: fadeUp 0.55s ease forwards;
+}
+
+.delay-1 {
+     animation-delay: 0.08s;
+}
+
+.delay-2 {
+     animation-delay: 0.16s;
+}
+
+@keyframes fadeUp {
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+.bg-shape {
+     position: fixed;
+     width: 380px;
+     height: 380px;
+     border-radius: 50%;
+     pointer-events: none;
+     filter: blur(2px);
+}
+
+.bg-shape-1 {
+     top: -140px;
+     right: -140px;
+     background: radial-gradient(circle, rgba(217, 121, 4, 0.16), rgba(217, 121, 4, 0));
+}
+
+.bg-shape-2 {
+     bottom: -170px;
+     left: -110px;
+     background: radial-gradient(circle, rgba(77, 110, 173, 0.2), rgba(77, 110, 173, 0));
+}
+
+@media (max-width: 640px) {
+     body {
+          padding: 20px 12px;
+     }
+
+     .card {
+          padding: 18px;
+          border-radius: 14px;
+     }
+
+     h2 {
+          font-size: 1.1rem;
+     }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Shortly - URL Shortener</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap"
+          rel="stylesheet" />
+     <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+     <div class="bg-shape bg-shape-1"></div>
+     <div class="bg-shape bg-shape-2"></div>
+
+     <main class="container">
+          <section class="card hero fade-up">
+               <p class="tag">Fast and simple backend companion</p>
+               <h1>Shortly</h1>
+               <p class="subtitle">Create short links, open them quickly, and inspect click history from one place.</p>
+          </section>
+
+          <section class="card fade-up delay-1">
+               <h2>Create Short URL</h2>
+               <form id="create-form" class="stack">
+                    <label for="long-url">Long URL</label>
+                    <input id="long-url" name="long-url" type="url" placeholder="https://example.com/very/long/link"
+                         required />
+                    <button type="submit">Generate</button>
+               </form>
+               <div id="create-result" class="result hidden"></div>
+          </section>
+
+          <section class="card fade-up delay-2">
+               <h2>Analytics</h2>
+               <form id="analytics-form" class="stack">
+                    <label for="short-id">Short ID</label>
+                    <input id="short-id" name="short-id" type="text" placeholder="mx1pCRL8" required />
+                    <button type="submit" class="secondary">Get Analytics</button>
+               </form>
+               <div id="analytics-result" class="result hidden"></div>
+          </section>
+     </main>
+
+     <script src="script.js"></script>
+</body>
+
+</html>
