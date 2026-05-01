@@ -1,0 +1,27 @@
+<!-- normal html (ejs) code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+    <% if (isNew) { %>
+        <p>User added successfully!</p>
+    <% } %>
+
+    <ul>
+        <% usr.forEach(user => { %>
+            <li><%= user.name %> - Age: <%= user.age %></li>
+        <% }) %>
+    </ul>
+
+    <form action="/" method="POST">
+        <input type="text" name="name" placeholder="Enter your name">
+        <input type="number" name="age" placeholder="Enter your age">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
